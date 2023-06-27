@@ -1,7 +1,7 @@
 {
-  "name": "socket-tutorial",
+  "name": "herracoorp",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project are created with HTML, CSS and JS. Back-end is created with **NodeJS**",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "JISAN LOPEZ ALMENDRAS",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
