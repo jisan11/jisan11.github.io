@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/gojs@2.2.7/release/go.js"></script>
+  <script src="https://gojs.net/latest/extensions/Figures.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/gojs@2.2.7/extensions/DataInspector.css">
+  <script src="https://unpkg.com/gojs@2.2.7/extensions/DataInspector.js"></script>
+  <title>Socket.io</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+
+  <div class="container" id="signup">
+    <div class="container-inp">
+      <input type="text" placeholder="Nombre de usuario" class="inp-main" id="inp-username">
+    </div>
+    <div class="container-inp">
+      <input type="text" placeholder="Nombre de la sala" class="inp-main" id="inp-room">
+    </div>
+    <div class="container-inp">
+      <input type="button" value="Entrar a la sala" class="inp-main" id="btn-signup">
+    </div>
+  </div>
+
+  <div class=" hidden" id="chat">
+
+
+    <header>
+      <div class="menu">
+        <div class="nombre">Diagramador UML</div>
+        <nav>
+          <ul>
+            <li><a onclick="printDiagram()">Exportar diagrama</a></li>
+            <li><a onclick="guardar()">Guardar</a></li>
+            <li><a onclick="abrir()">Abrir</a></li>
+            <li><a id="blobButton" onclick="descargar()">Descargar</a></li>
+            <li><a onclick="descargarArchivoEAP()">Descargar EAP</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+    <br>
+    <div id="allSampleContent" class="p-4 w-full">
+      <script src="https://gojs.net/latest/projects/storage/lib/gcs.js"></script>
+      <script src="graficos.js"></script>
+
+      <div id="sample">
+        <div style="width: 100%; height: 584px; display: flex; justify-content: space-between">
+          <div id="myPaletteDiv"
+            style="width: 220px; margin-right: 2px; background-color: rgb(168, 158, 158); position: relative; -webkit-tap-highlight-color: rgba(104, 19, 19, 0);">
+            <canvas tabindex="0" width="125" height="937"
+              style="position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; touch-action: none; width: 100px; height: 750px;"
+              _msthash="460109" _msttexthash="2898779">Este texto se muestra si el navegador no admite el
+              elemento HTML canvas.</canvas>
+            <div style="position: absolute; overflow: auto; width: 100px; height: 750px; z-index: 1;">
+              <div style="position: absolute; width: 1px; height: 1px;"></div>
+            </div>
+          </div>
+          <div id="myDiagramDiv"
+            style="flex-grow: 1; height: 584px;  background-color: rgb(225, 228, 235); position: relative; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
+            <canvas tabindex="0" width="1192" height="937"
+              style="position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; touch-action: none; width: 954px; height: 750px;">This
+              text is displayed if your browser does not support the Canvas HTML element.</canvas>
+            <div style="position: absolute; overflow: auto; width: 954px; height: 750px; z-index: 1;">
+              <div style="position: absolute; width: 1px; height: 1px;"></div>
+            </div>
+          </div>
+          <div id="myChatDiv"
+            style="width: 220px; height: 584px; margin-right: 2px; background-color: rgb(168, 158, 158); position: relative; -webkit-tap-highlight-color: rgba(104, 19, 19, 0);">
+
+            <div class="chat-container">
+              <div class="chat-header">
+                <p id="room-name">Nombre de la sala</p>
+              </div>
+              <div class="chat-messages" id="chat-messages">
+                <div class="chat-users-info" id="chat-users"></div>
+                <div class="chat-message" id="chat-message">
+                  <!-- <p class="username-message local-message">Eladio:</p>
+                      <p class="local-message" id="local">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi dolorem doloribus iusto et aspernatur recusandae provident adipisci, aliquam officia. Doloremque optio officia vitae eum nostrum expedita? Consequuntur quod error aperiam.
+                      </p> -->
+                </div>
+              </div>
+              <div class="chat-inp">
+                <input type="text" placeholder="Escribe tu mensaje..." class="inp-main" id="inp-message">
+              </div>
+            </div>
+          </div>
+        </div> <br>
+        <div>
+          <div id="myInspector" class="inspector"></div>
+        </div>
+        <div id="tituloFormato">Formato de diagrama</div>
+        <font _mstmutation="1" _msthash="79066" _msttexthash="1326731796"><textarea id="mySavedModel"
+            style="width:15%;height:100px"> </textarea></font>
+      </div>
+      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;swap" rel="stylesheet" type="text/css">
+    </div>
+
+  </div>
+  <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
